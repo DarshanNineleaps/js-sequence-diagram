@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Code Review</title>
+        <script src="node_modules/underscore/underscore-min.js"></script>
+        <script src="node_modules/raphael/raphael.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
+
+    </head>
+    <body>
+        <pre id="procedureOne">
+            title: Code Review Flow
+         <!--   participant Sayam
+            participant Prasanna
+            participant Darshan
+            participant Shoaib
+            participant Chinmayi
+            participant Ankitha
+            participant Amrith
+            participant Atish
+            participant Saravanan-->
+
+            Sayam->Prasanna: Code Review request
+            Prasanna->Shoaib: Code Review request
+            Darshan->Chinmayi: Code Review request
+            Shoaib->Atish: Code Review request
+            Chinmayi->Atish: Code Review request
+            Ankitha->Atish: Code Review request
+            Amrith->Atish: Code Review request
+            Atish->Saravanan: Code Review request
+        </pre>
+        <div id="diagramOne"></div>
+
+        <script>
+            let diagramOne;
+            diagramOne = Diagram.parse(document.getElementById('procedureOne').innerText);
+            diagramOne.drawSVG('diagramOne', {theme: 'simple'});
+
+            <!--hide pre tags-->
+            document.getElementById('procedureOne').style.visibility = "hidden";
+        </script>
+    </body>
+</html>
