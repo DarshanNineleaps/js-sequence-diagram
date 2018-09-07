@@ -6,39 +6,62 @@
         <script src="node_modules/underscore/underscore-min.js"></script>
         <script src="node_modules/raphael/raphael.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js"></script>
-
+        <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
     <body>
-        <pre id="procedureOne">
-            title: Code Review Flow
-         <!--   participant Sayam
-            participant Prasanna
-            participant Darshan
+        <pre id="procedureTwo">
+            participant Sayam
             participant Shoaib
-            participant Chinmayi
-            participant Ankitha
-            participant Amrith
-            participant Atish
-            participant Saravanan-->
 
-            Sayam->Prasanna: Code Review request
-            Prasanna->Shoaib: Code Review request
+            Sayam->Shoaib: Code Review request
+        </pre>
+        <div id="diagramTwo" class="moveTop"></div>
+
+        <pre id="procedureThree">
+            participant Darshan
+            participant Chinmayi
+
             Darshan->Chinmayi: Code Review request
-            Shoaib->Atish: Code Review request
-            Chinmayi->Atish: Code Review request
-            Ankitha->Atish: Code Review request
-            Amrith->Atish: Code Review request
+        </pre>
+        <div id="diagramThree" class="moveTop"></div>
+
+        <pre id="procedureFour">
+            participant Prasanna Shoaib Chinmayi Ankitha Amrith
+            participant Atish
+
+            Prasanna Shoaib Chinmayi Ankitha Amrith->Atish: Code Review request
+        </pre>
+        <div id="diagramFour" class="moveTop"></div>
+
+        <pre id="procedureFive">
+            participant Atish
+            participant Saravanan
+
             Atish->Saravanan: Code Review request
         </pre>
-        <div id="diagramOne"></div>
+        <div id="diagramFive" class="moveTop"></div>
 
         <script>
-            let diagramOne;
-            diagramOne = Diagram.parse(document.getElementById('procedureOne').innerText);
-            diagramOne.drawSVG('diagramOne', {theme: 'simple'});
+            let diagramTwo, diagramThree, diagramFour, diagramFive;
 
-            <!--hide pre tags-->
-            document.getElementById('procedureOne').style.visibility = "hidden";
+            diagramTwo = Diagram.parse(document.getElementById('procedureTwo').innerText);
+            diagramTwo.drawSVG('diagramTwo', {theme: 'simple'});
+
+            diagramThree = Diagram.parse(document.getElementById('procedureThree').innerText);
+            diagramThree.drawSVG('diagramThree', {theme: 'simple'});
+
+            diagramFour = Diagram.parse(document.getElementById('procedureFour').innerText);
+            diagramFour.drawSVG('diagramFour', {theme: 'simple'});
+
+            diagramFive = Diagram.parse(document.getElementById('procedureFive').innerText);
+            diagramFive.drawSVG('diagramFive', {theme: 'simple'});
+
+           // Hide the pre tags
+            document.getElementById('procedureTwo').style.visibility = 'hidden';
+            document.getElementById('procedureThree').style.visibility = 'hidden';
+            document.getElementById('procedureFour').style.visibility = 'hidden';
+            document.getElementById('procedureFive').style.visibility = 'hidden';
+
         </script>
     </body>
 </html>
